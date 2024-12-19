@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { auth, signIn, signOut } from "@/auth";
 
@@ -14,7 +14,7 @@ const Navbar = async () => {
             width={144}
             height={30}
           /> */}
-          Placeholder
+          Pixel Tagger
         </Link>
         <div className="flex items-center gap-5 text-black">
           {session && session?.user ? (
@@ -30,7 +30,7 @@ const Navbar = async () => {
               >
                 <button type="submit">Logout</button>
               </form>
-              <Link href={`/user/${session?.id}`}>
+              <Link href={`/user/${session?.user?.id}`}>
                 <span>{session?.user?.name}</span>
               </Link>
             </>
