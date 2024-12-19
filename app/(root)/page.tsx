@@ -1,4 +1,12 @@
-export default function Home() {
+import SearchForm from "@/components/SearchForm";
+
+const Home = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ query?: string }>;
+}) => {
+  const query = (await searchParams).query;
+
   return (
     <section className="teal_container">
       <h1 className="heading">
@@ -10,6 +18,9 @@ export default function Home() {
         Get AI-Powered Image Insightful Tags, Embed Custom Metadata, Download
         Smart Images.
       </p>
+      <SearchForm query={query} />
     </section>
   );
-}
+};
+
+export default Home;
